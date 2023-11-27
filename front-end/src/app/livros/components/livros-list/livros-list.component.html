@@ -1,0 +1,28 @@
+<div *ngFor="let livro of livros" >
+  <mat-card class="example-card" fxFlex="auto" >
+    <mat-card-header>
+      <mat-card-title>{{livro.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{livro.desc}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button matTooltip="primary" color="primary" (click)="onEdit(livro)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button matTooltipe="warn" color="warn" id="deletar" (click)="onDelete(livro)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div id="adicionar">
+  <button mat-fab color="primary" (click)="onAdd()"><mat-icon >add</mat-icon></button>
+</div>
+
+
+
+
+
+

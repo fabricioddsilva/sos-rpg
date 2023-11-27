@@ -1,0 +1,21 @@
+<mat-card class="mat-card">
+  <mat-toolbar color="primary">Novo Livro</mat-toolbar>
+  <br>
+  <mat-card-content>
+    <form [formGroup]="form" >
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <textarea matInput #message maxlength="100" placeholder="Descrição" formControlName="desc"></textarea>
+        <mat-hint align="end">{{message.value.length}} / 100</mat-hint>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Criar</button>
+    <button mat-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>
+

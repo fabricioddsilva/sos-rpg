@@ -1,0 +1,48 @@
+<button id="deletar" mat-raised-button mat-fab-extended color="warn">
+  <mat-icon>delete</mat-icon>Excluir Todas!</button>
+
+  <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center start">
+    <div *ngIf="formulas$ | async as formulas; else loading">
+      <div *ngFor="let formula of formulas$ | async">
+        <mat-card class="example-card" >
+          <mat-card-header>
+            <mat-card-title>{{formula.name}} - {{formula.cost}} PE</mat-card-title>
+            <mat-card-subtitle>{{formula.process}} ({{formula.type}})</mat-card-subtitle>
+            <mat-card-subtitle>Execução: {{formula.execution}}; Alcance: {{formula.range}}</mat-card-subtitle>
+            <mat-card-subtitle>Alvo: {{formula.target}}; Duração: {{formula.duration}}</mat-card-subtitle>
+            <mat-card-subtitle>Elementos: {{formula.elements}}</mat-card-subtitle>
+          </mat-card-header>
+          <br>
+          <mat-card-content>
+            <p>{{formula.desc}}</p>
+            <p>{{formula.amplification}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button matTooltip="primary" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button matTooltipe="warn" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+    </div>
+    <ng-template #loading>
+      <div class="loading-spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+  </div>
+
+  <div id="adicionar">
+    <button mat-fab color="primary"><mat-icon>add</mat-icon></button>
+  </div>
+
+
+
+
+
+
+
